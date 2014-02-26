@@ -2,6 +2,7 @@ package com.fasterxml.jackson.datatype.jdk8;
 
 import java.nio.file.Paths;
 
+import com.fasterxml.jackson.core.json.PackageVersion;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
