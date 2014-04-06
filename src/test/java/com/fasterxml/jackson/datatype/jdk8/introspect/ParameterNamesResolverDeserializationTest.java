@@ -47,7 +47,7 @@ public class ParameterNamesResolverDeserializationTest {
         this.json = json;
         this.expected = expected;
         objectMapper = new ObjectMapper();
-        objectMapper.registerModule(ParameterNamesResolver.getDefault());
+        objectMapper.registerModule(new ParameterNamesResolver());
     }
 
     @Test

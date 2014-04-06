@@ -39,7 +39,7 @@ public class ParameterNamesResolverSerializationTest {
         this.expected = expected;
         this.immutableBean = immutableBean;
         objectMapper = new ObjectMapper();
-        objectMapper.registerModule(ParameterNamesResolver.getDefault());
+        objectMapper.registerModule(new ParameterNamesResolver());
     }
 
     @Test

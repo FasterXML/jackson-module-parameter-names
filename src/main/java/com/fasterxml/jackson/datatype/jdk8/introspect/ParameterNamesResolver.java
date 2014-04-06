@@ -54,11 +54,6 @@ import java.lang.reflect.Parameter;
  */
 public final class ParameterNamesResolver extends SimpleModule {
 
-    public static ParameterNamesResolver getDefault() {
-
-        return new ParameterNamesResolver();
-    }
-
     private static final long serialVersionUID = -6784516575056317310L;
 
     ParameterNamesResolver() {
