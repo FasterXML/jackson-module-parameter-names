@@ -7,11 +7,11 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
-public class Jdk8Module extends SimpleModule
+public class ParameterNamesModule extends SimpleModule
 {
     private static final long serialVersionUID = 1L;
 
-    public Jdk8Module()
+    public ParameterNamesModule()
     {
         super(PackageVersion.VERSION);
 
