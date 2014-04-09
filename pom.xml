@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.fasterxml.jackson</groupId>
     <artifactId>jackson-parent</artifactId>
-    <version>2.4</version>
+    <version>2.4.1</version>
   </parent>
   <groupId>com.fasterxml.jackson.module</groupId>
   <artifactId>jackson-module-parameter-names</artifactId>
@@ -31,7 +31,6 @@ introspection of method/constructor parameter names, without having to add expli
   </scm>
   <properties>
     <version.jackson.core>2.4.0-SNAPSHOT</version.jackson.core>
-    <version.junit>4.11</version.junit>
     <!-- explicitly target JDK 8 -->
     <javac.src.version>1.8</javac.src.version>
     <javac.target.version>1.8</javac.target.version>
@@ -42,11 +41,11 @@ introspection of method/constructor parameter names, without having to add expli
     <!-- Configuration properties for the OSGi maven-bundle-plugin -->
     <osgi.import>com.fasterxml.jackson.core
 ,com.fasterxml.jackson.core
+,com.fasterxml.jackson.core.json
 ,com.fasterxml.jackson.core.util
 ,com.fasterxml.jackson.databind
+,com.fasterxml.jackson.databind.introspect
 ,com.fasterxml.jackson.databind.module
-,com.fasterxml.jackson.databind.ser
-,com.fasterxml.jackson.databind.ser.std
     </osgi.import>
     <osgi.export>${project.groupId}.paramnames.*;version=${project.version}
 </osgi.export>
@@ -63,13 +62,6 @@ introspection of method/constructor parameter names, without having to add expli
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${version.jackson.core}</version>
-    </dependency>
-    <!-- and unit tests seem to require a newer junit version -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>${version.junit}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
