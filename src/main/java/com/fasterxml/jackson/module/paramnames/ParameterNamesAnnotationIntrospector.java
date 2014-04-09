@@ -1,4 +1,4 @@
-package com.fasterxml.jackson.module.paramnames.introspect;
+package com.fasterxml.jackson.module.paramnames;
 
 import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.PropertyName;

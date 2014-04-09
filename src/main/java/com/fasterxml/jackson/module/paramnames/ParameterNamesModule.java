@@ -1,11 +1,7 @@
 package com.fasterxml.jackson.module.paramnames;
 
-import java.nio.file.Paths;
-
 import com.fasterxml.jackson.core.json.PackageVersion;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 public class ParameterNamesModule extends SimpleModule
 {
@@ -14,25 +10,17 @@ public class ParameterNamesModule extends SimpleModule
     public ParameterNamesModule()
     {
         super(PackageVersion.VERSION);
-
-        // first deserializers
-//        addDeserializer(Paths.class, new PathsDeserializer());
-
-        // then serializers:
-        final JsonSerializer<Object> stringSer = ToStringSerializer.instance;
-        addSerializer(Paths.class, stringSer);
-
-        // then key deserializers?
-//       addKeyDeserializer(Paths.class, new PathsKeyDeserializer());
     }
 
     @Override
-    public int hashCode() {
-        return getClass().hashCode();
+    public void setupModule(SetupContext context) {
+        super.setupModule(context);
+        context.insertAnnotationIntrospector(new ParameterNamesAnnotationIntrospector());
     }
+    
+    @Override
+    public int hashCode() { return getClass().hashCode(); }
 
     @Override
-    public boolean equals(Object o) {
-        return this == o;
-    }
+    public boolean equals(Object o) { return this == o; }
 }

@@ -2,7 +2,6 @@ package com.fasterxml.jackson.module.paramnames;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.paramnames.introspect.ParameterNamesResolver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +40,7 @@ public class ParameterNamesResolverSerializationTest {
         this.expected = expected;
         this.immutableBean = immutableBean;
         objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new ParameterNamesResolver());
+        objectMapper.registerModule(new ParameterNamesModule());
     }
 
     @Test

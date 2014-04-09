@@ -1,14 +1,13 @@
 package com.fasterxml.jackson.module.paramnames;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.module.paramnames.introspect.ParameterNamesResolver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
-import java.io.IOException;
-import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.runners.Parameterized.Parameters;
@@ -49,7 +48,7 @@ public class ParameterNamesResolverDeserializationTest {
         this.json = json;
         this.expected = expected;
         objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new ParameterNamesResolver());
+        objectMapper.registerModule(new ParameterNamesModule());
     }
 
     @Test
