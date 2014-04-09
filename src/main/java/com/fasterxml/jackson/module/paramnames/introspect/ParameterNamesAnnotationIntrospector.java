@@ -1,4 +1,4 @@
-package com.fasterxml.jackson.datatype.jdk8.introspect;
+package com.fasterxml.jackson.module.paramnames.introspect;
 
 import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.PropertyName;

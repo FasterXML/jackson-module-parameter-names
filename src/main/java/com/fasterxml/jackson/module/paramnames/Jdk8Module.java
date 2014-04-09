@@ -1,4 +1,4 @@
-package com.fasterxml.jackson.datatype.jdk8;
+package com.fasterxml.jackson.module.paramnames;
 
 import java.nio.file.Paths;
 

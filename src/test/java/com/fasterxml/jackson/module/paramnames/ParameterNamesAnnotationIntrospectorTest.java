@@ -1,9 +1,10 @@
-package com.fasterxml.jackson.datatype.jdk8.introspect;
+package com.fasterxml.jackson.module.paramnames;
 
 import com.fasterxml.jackson.databind.PropertyName;
 import com.fasterxml.jackson.databind.introspect.AnnotatedConstructor;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
 import com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
+
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;

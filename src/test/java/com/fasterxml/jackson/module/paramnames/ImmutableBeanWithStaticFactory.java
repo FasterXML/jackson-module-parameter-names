@@ -1,4 +1,4 @@
-package com.fasterxml.jackson.datatype.jdk8.introspect;
+package com.fasterxml.jackson.module.paramnames;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 

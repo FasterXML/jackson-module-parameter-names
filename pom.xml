@@ -2,29 +2,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion> 
   <parent>
-    <groupId>com.fasterxml</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>12</version>
+    <groupId>com.fasterxml.jackson</groupId>
+    <artifactId>jackson-parent</artifactId>
+    <version>2.4</version>
   </parent>
   <groupId>com.fasterxml.jackson.datatype</groupId>
-  <artifactId>jackson-datatype-jdk8</artifactId>
-  <name>Jackson-datatype-jdk8</name>
+  <artifactId>jackson-module-parameter-names</artifactId>
+  <name>Jackson-module-parameter-names</name>
   <version>2.4.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
-  <description>Add-on module for Jackson (http://jackson.codehaus.org) to supportJDK 8 data types.</description>
+  <description>Add-on module for Jackson (http://jackson.codehaus.org) to support
+introspection of method/constructor parameter names, without having to add explicit property name annotation.
+</description>
 
   <developers>
-  	<developer>
-  		<id>lpandzic</id>
-  		<name>Lovro Pandžić</name>
-  		<email>lovro.pandzic@gmail.com</email>
-  	</developer>
+    <developer>
+      <id>lpandzic</id>
+      <name>Lovro Pandžić</name>
+      <email>lovro.pandzic@gmail.com</email>
+    </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:FasterXML/jackson-datatype-jdk8.git</connection>
-    <developerConnection>scm:git:git@github.com:FasterXML/jackson-datatype-jdk8.git</developerConnection>
-    <url>http://github.com/FasterXML/jackson-datatype-jdk8</url>    
+    <connection>scm:git:git@github.com:FasterXML/jackson-module-parameter-names.git</connection>
+    <developerConnection>scm:git:git@github.com:FasterXML/jackson-module-parameter-names.git</developerConnection>
+    <url>http://github.com/FasterXML/jackson-module-parameter-names</url>    
     <tag>HEAD</tag>
   </scm>
   <properties>
@@ -33,8 +35,8 @@
     <javac.src.version>1.8</javac.src.version>
     <javac.target.version>1.8</javac.target.version>
     <!-- Generate PackageVersion.java into this directory. -->
-    <packageVersion.dir>com/fasterxml/jackson/datatype/jdk8</packageVersion.dir>
-    <packageVersion.package>${project.groupId}.jdk8</packageVersion.package>
+    <packageVersion.dir>com/fasterxml/jackson/module/paramnames</packageVersion.dir>
+    <packageVersion.package>${project.groupId}.paramnames</packageVersion.package>
 
     <!-- Configuration properties for the OSGi maven-bundle-plugin -->
     <osgi.import>com.fasterxml.jackson.core
@@ -45,7 +47,7 @@
 ,com.fasterxml.jackson.databind.ser
 ,com.fasterxml.jackson.databind.ser.std
     </osgi.import>
-    <osgi.export>${project.groupId}.jdk8.*;version=${project.version}
+    <osgi.export>${project.groupId}.paramnames.*;version=${project.version}
 </osgi.export>
   </properties>
 
@@ -60,14 +62,6 @@
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
       <version>${version.jackson.core}</version>
-    </dependency>
-
-    <!--  Test Dependencies -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 

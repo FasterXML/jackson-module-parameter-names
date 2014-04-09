@@ -1,6 +1,8 @@
-package com.fasterxml.jackson.datatype.jdk8.introspect;
+package com.fasterxml.jackson.module.paramnames;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.module.paramnames.introspect.ParameterNamesResolver;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
