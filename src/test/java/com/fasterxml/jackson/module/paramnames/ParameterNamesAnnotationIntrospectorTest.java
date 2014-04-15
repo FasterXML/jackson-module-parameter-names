@@ -1,6 +1,5 @@
 package com.fasterxml.jackson.module.paramnames;
 
-import com.fasterxml.jackson.databind.PropertyName;
 import com.fasterxml.jackson.databind.introspect.AnnotatedConstructor;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
 import com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
@@ -19,14 +18,14 @@ public class ParameterNamesAnnotationIntrospectorTest {
 
     private ParameterNamesAnnotationIntrospector parameterNamesAnnotationIntrospector = new ParameterNamesAnnotationIntrospector();
     private AnnotatedParameter annotatedParameter;
-    private PropertyName propertyName;
+    private String propertyName;
 
     @Test
     public void shouldFindParameterNameFromConstructorForLegalIndex() throws NoSuchMethodException {
 
         givenAnnotatedWithParams(ImmutableBean.class.getConstructor(String.class, Integer.class), 0);
 
-        whenFindNameForDeserialization();
+        whenFindImplicitName();
 
         thenShouldFindParameterName("name");
     }
@@ -36,7 +35,7 @@ public class ParameterNamesAnnotationIntrospectorTest {
 
         givenAnnotatedWithParams(ImmutableBeanWithStaticFactory.class.getMethod("of", String.class, Integer.class), 0);
 
-        whenFindNameForDeserialization();
+        whenFindImplicitName();
 
         thenShouldFindParameterName("name");
     }
@@ -53,13 +52,13 @@ public class ParameterNamesAnnotationIntrospectorTest {
         annotatedParameter = new AnnotatedParameter(owner, null, null, index);
     }
 
-    private void whenFindNameForDeserialization() {
+    private void whenFindImplicitName() {
 
-        propertyName = parameterNamesAnnotationIntrospector.findNameForDeserialization(annotatedParameter);
+        propertyName = parameterNamesAnnotationIntrospector.findParameterSourceName(annotatedParameter);
     }
 
     private void thenShouldFindParameterName(String name) {
 
-        assertEquals(name, propertyName.getSimpleName());
+        assertEquals(name, propertyName);
     }
 }

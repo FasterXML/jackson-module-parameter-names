@@ -1,5 +1,7 @@
 package com.fasterxml.jackson.module.paramnames;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 /**
 * @author Lovro Pandzic
 */
@@ -8,6 +10,8 @@ class ImmutableBean {
     private final String name;
     private final Integer value;
 
+    // needed because names are implicit (as of Jackson 2.4), not explicit
+    @JsonCreator
     public ImmutableBean(String name, Integer value) {
 
         this.name = name;
