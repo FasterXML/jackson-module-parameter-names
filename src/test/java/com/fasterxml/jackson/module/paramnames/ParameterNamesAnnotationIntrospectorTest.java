@@ -54,7 +54,7 @@ public class ParameterNamesAnnotationIntrospectorTest {
 
     private void whenFindImplicitName() {
 
-        propertyName = parameterNamesAnnotationIntrospector.findParameterSourceName(annotatedParameter);
+        propertyName = parameterNamesAnnotationIntrospector.findImplicitPropertyName(annotatedParameter);
     }
 
     private void thenShouldFindParameterName(String name) {

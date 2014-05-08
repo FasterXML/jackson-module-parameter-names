@@ -30,8 +30,11 @@ class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector {
 
     // since 2.4
     @Override
-    public String findParameterSourceName(AnnotatedParameter param) {
-        return findParameterName(param);
+    public String findImplicitPropertyName(AnnotatedMember m) {
+        if (m instanceof AnnotatedParameter) {
+            return findParameterName((AnnotatedParameter) m);
+        }
+        return null;
     }
 
     /**
