@@ -30,7 +30,7 @@ introspection of method/constructor parameter names, without having to add expli
     <tag>HEAD</tag>
   </scm>
   <properties>
-    <version.jackson.core>2.4.0-rc3</version.jackson.core>
+    <version.jackson.core>2.4.0</version.jackson.core>
     <!-- explicitly target JDK 8 -->
     <javac.src.version>1.8</javac.src.version>
     <javac.target.version>1.8</javac.target.version>
@@ -52,7 +52,7 @@ introspection of method/constructor parameter names, without having to add expli
   </properties>
 
   <dependencies>
-    <!-- Extends Jackson mapper, 2.x -->
+    <!-- Extends Jackson mapper -->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>

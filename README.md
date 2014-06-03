@@ -1,11 +1,12 @@
-Project for [Jackson](https://github.com/FasterXML/jackson) module (jar)
+[Jackson](../../../jackson) module
 that adds support for accessing parameter names; a feature added in JDK 8.
 
 ## Status
 
+This is a new, experimental module; 2.4 is the first official release.
+
 [![Build Status](https://fasterxml.ci.cloudbees.com/job/jackson-module-parameter-names-master/badge/icon)](https://fasterxml.ci.cloudbees.com/job/jackson-module-parameter-names-master/)
 
-This is a new, experimental module (experimental with 2.4). More details will be added when we add functionality.
 
 ## Usage
 
@@ -17,7 +18,7 @@ To use module on Maven-based projects, use following dependency:
 <dependency>
   <groupId>com.fasterxml.jackson.module</groupId>
   <artifactId>jackson-module-parameter-names</artifactId>
-  <version>2.4.0-SNAPSHOT</version>
+  <version>2.4.0</version>
 </dependency>
 ```
 
