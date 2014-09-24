@@ -1,4 +1,4 @@
-package com.fasterxml.jackson.module.paramnames.failing;
+package com.fasterxml.jackson.module.paramnames;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
-// Not actually failing; but since [Issue#5] open, leave here for now.
 public class TestIssue5
 {
     static final class SimpleConstructor {
