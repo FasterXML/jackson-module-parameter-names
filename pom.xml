@@ -98,13 +98,13 @@ introspection of method/constructor parameter names, without having to add expli
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
           <optimize>true</optimize>
-          <compilerArguments>
-            <Xmaxerrs>10000</Xmaxerrs>
-            <Xmaxwarns>10000</Xmaxwarns>
-            <Xlint />
-            <Werror />
-            <parameters />
-          </compilerArguments>
+          <compilerArgs>
+            <arg>-Xmaxerrs=10000</arg>
+            <arg>-Xmaxwarns=10000</arg>
+            <arg>-Xlint</arg>
+            <arg>-Werror</arg>
+            <arg>-parameters</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>
