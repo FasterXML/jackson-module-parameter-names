@@ -6,25 +6,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
  * @author Lovro Pandzic
  */
 class ImmutableBeanWithStaticFactory {
-
     @JsonCreator
     public static ImmutableBeanWithStaticFactory of(String name, Integer value) {
-
         return new ImmutableBeanWithStaticFactory(name, value);
     }
 
+    private ImmutableBeanWithStaticFactory(String name, Integer value) {
+        this.name = name;
+        this.value = value;
+    }
+    
     private final String name;
     private final Integer value;
 
-    public String getName() {
-
-        return name;
-    }
-
-    public Integer getValue() {
-
-        return value;
-    }
+    public String getName() { return name;}
+    public Integer getValue() { return value; }
 
     @Override
     public boolean equals(Object o) {
@@ -58,16 +54,9 @@ class ImmutableBeanWithStaticFactory {
 
     @Override
     public String toString() {
-
         return "ImmutableBeanWithStaticFactory{" +
                 "name='" + name + '\'' +
                 ", value=" + value +
                 '}';
-    }
-
-    private ImmutableBeanWithStaticFactory(String name, Integer value) {
-
-        this.name = name;
-        this.value = value;
     }
 }

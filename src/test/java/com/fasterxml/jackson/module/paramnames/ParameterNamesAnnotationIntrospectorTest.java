@@ -16,49 +16,30 @@ import static org.junit.Assert.assertEquals;
  */
 public class ParameterNamesAnnotationIntrospectorTest {
 
-    private ParameterNamesAnnotationIntrospector parameterNamesAnnotationIntrospector = new ParameterNamesAnnotationIntrospector();
-    private AnnotatedParameter annotatedParameter;
-    private String propertyName;
+    private final ParameterNamesAnnotationIntrospector PN_AI = new ParameterNamesAnnotationIntrospector();
 
     @Test
-    public void shouldFindParameterNameFromConstructorForLegalIndex() throws NoSuchMethodException {
+    public void shouldFindParameterNameFromConstructorForLegalIndex() throws Exception {
+        Constructor<?> ctor = ImmutableBean.class.getConstructor(String.class, Integer.class);
 
-        givenAnnotatedWithParams(ImmutableBean.class.getConstructor(String.class, Integer.class), 0);
+        AnnotatedConstructor owner = new AnnotatedConstructor(ctor, null, null);
+        AnnotatedParameter annotatedParameter = new AnnotatedParameter(owner, null, null, 0);
+        
+        String propertyName = PN_AI.findImplicitPropertyName(annotatedParameter);
 
-        whenFindImplicitName();
-
-        thenShouldFindParameterName("name");
+        assertEquals("name", propertyName);
     }
 
     @Test
     public void shouldFindParameterNameFromMethodForLegalIndex() throws NoSuchMethodException {
 
-        givenAnnotatedWithParams(ImmutableBeanWithStaticFactory.class.getMethod("of", String.class, Integer.class), 0);
-
-        whenFindImplicitName();
-
-        thenShouldFindParameterName("name");
-    }
-
-    private void givenAnnotatedWithParams(Constructor<ImmutableBean> constructor, int index) throws NoSuchMethodException {
-
-        AnnotatedConstructor owner = new AnnotatedConstructor(constructor, null, null);
-        annotatedParameter = new AnnotatedParameter(owner, null, null, index);
-    }
-
-    private void givenAnnotatedWithParams(Method method, int index) throws NoSuchMethodException {
+        Method method  = ImmutableBeanWithStaticFactory.class.getMethod("of", String.class, Integer.class);
 
         AnnotatedMethod owner = new AnnotatedMethod(method, null, null);
-        annotatedParameter = new AnnotatedParameter(owner, null, null, index);
-    }
+        AnnotatedParameter annotatedParameter = new AnnotatedParameter(owner, null, null, 0);
 
-    private void whenFindImplicitName() {
+        String propertyName = PN_AI.findImplicitPropertyName(annotatedParameter);
 
-        propertyName = parameterNamesAnnotationIntrospector.findImplicitPropertyName(annotatedParameter);
-    }
-
-    private void thenShouldFindParameterName(String name) {
-
-        assertEquals(name, propertyName);
+        assertEquals("name", propertyName);
     }
 }
