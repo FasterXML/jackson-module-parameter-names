@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.Assert;
 
 import static junit.framework.TestCase.assertNotNull;
 
@@ -48,6 +49,7 @@ public class TestWrappers {
         IntWrapper result = mapper.readValue
                 ("{\"value\":13}", IntWrapper.class);
         assertNotNull(result);
+        Assert.assertEquals(13, result.getValue());
     }
 
     @Test
@@ -58,7 +60,8 @@ public class TestWrappers {
         mapper.registerModule(new ParameterNamesModule());
 
         GenericWrapper<Integer> result = mapper.readValue
-            ("{\"value\":13}", new TypeReference<GenericWrapper<Integer>>() { });
+            ("{\"value\":-9}", new TypeReference<GenericWrapper<Integer>>() { });
         assertNotNull(result);
+        Assert.assertEquals(Integer.valueOf(-9), result.getValue());
     }
 }
