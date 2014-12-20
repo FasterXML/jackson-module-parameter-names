@@ -3,7 +3,6 @@ package com.fasterxml.jackson.module.paramnames;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -15,7 +14,7 @@ public class TestWrappers {
     {
         private final int value;
 
-        @JsonCreator
+        @JsonCreator(mode=JsonCreator.Mode.PROPERTIES)
         public IntWrapper(int value) {
             this.value = value;
         }
@@ -29,7 +28,7 @@ public class TestWrappers {
     {
         private final T value;
 
-        @JsonCreator
+        @JsonCreator(mode=JsonCreator.Mode.PROPERTIES)
         public GenericWrapper(T value) {
             this.value = value;
         }
@@ -40,7 +39,7 @@ public class TestWrappers {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testWrapper() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -53,7 +52,7 @@ public class TestWrappers {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testGenericWrapper() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
 
