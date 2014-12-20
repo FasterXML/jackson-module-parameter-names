@@ -22,6 +22,8 @@ public class ParameterNamesAnnotationIntrospectorTest {
     public void shouldFindParameterNameFromConstructorForLegalIndex() throws Exception {
         Constructor<?> ctor = ImmutableBean.class.getConstructor(String.class, Integer.class);
 
+        assertEquals("name", ctor.getParameters()[0].getName());
+
         AnnotatedConstructor owner = new AnnotatedConstructor(null, ctor, null, null);
         AnnotatedParameter annotatedParameter = new AnnotatedParameter(owner, null, null, 0);
         
@@ -31,10 +33,12 @@ public class ParameterNamesAnnotationIntrospectorTest {
     }
 
     @Test
-    public void shouldFindParameterNameFromMethodForLegalIndex() throws NoSuchMethodException {
+    public void shouldFindParameterNameFromMethodForLegalIndex() throws Exception {
 
         Method method  = ImmutableBeanWithStaticFactory.class.getMethod("of", String.class, Integer.class);
 
+        assertEquals("name", method.getParameters()[0].getName());
+        
         AnnotatedMethod owner = new AnnotatedMethod(null, method, null, null);
         AnnotatedParameter annotatedParameter = new AnnotatedParameter(owner, null, null, 0);
 

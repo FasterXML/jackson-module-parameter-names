@@ -44,7 +44,6 @@ public class ParameterNamesResolverDeserializationTest {
     private final ObjectMapper objectMapper;
 
     public ParameterNamesResolverDeserializationTest(String json, Object expected) {
-
         this.json = json;
         this.expected = expected;
         objectMapper = new ObjectMapper();
@@ -53,7 +52,6 @@ public class ParameterNamesResolverDeserializationTest {
 
     @Test
     public void test() throws IOException {
-
         assertEquals(expected, objectMapper.readValue(json, expected.getClass()));
     }
 }

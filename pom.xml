@@ -90,7 +90,7 @@ introspection of method/constructor parameter names, without having to add expli
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.2</version>
         <inherited>true</inherited>
         <configuration>
           <source>${javac.src.version}</source>
@@ -99,8 +99,6 @@ introspection of method/constructor parameter names, without having to add expli
           <showWarnings>true</showWarnings>
           <optimize>true</optimize>
           <compilerArgs>
-            <arg>-Xmaxerrs=10000</arg>
-            <arg>-Xmaxwarns=10000</arg>
             <arg>-Xlint</arg>
             <arg>-Werror</arg>
             <arg>-parameters</arg>

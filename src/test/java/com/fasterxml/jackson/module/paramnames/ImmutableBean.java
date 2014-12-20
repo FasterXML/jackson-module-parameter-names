@@ -3,8 +3,8 @@ package com.fasterxml.jackson.module.paramnames;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 /**
-* @author Lovro Pandzic
-*/
+ * @author Lovro Pandzic
+ */
 class ImmutableBean {
 
     private final String name;
