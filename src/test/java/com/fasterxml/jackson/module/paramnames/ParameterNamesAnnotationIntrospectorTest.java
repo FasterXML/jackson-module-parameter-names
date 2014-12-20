@@ -22,7 +22,7 @@ public class ParameterNamesAnnotationIntrospectorTest {
     public void shouldFindParameterNameFromConstructorForLegalIndex() throws Exception {
         Constructor<?> ctor = ImmutableBean.class.getConstructor(String.class, Integer.class);
 
-        AnnotatedConstructor owner = new AnnotatedConstructor(ctor, null, null);
+        AnnotatedConstructor owner = new AnnotatedConstructor(null, ctor, null, null);
         AnnotatedParameter annotatedParameter = new AnnotatedParameter(owner, null, null, 0);
         
         String propertyName = PN_AI.findImplicitPropertyName(annotatedParameter);
@@ -35,7 +35,7 @@ public class ParameterNamesAnnotationIntrospectorTest {
 
         Method method  = ImmutableBeanWithStaticFactory.class.getMethod("of", String.class, Integer.class);
 
-        AnnotatedMethod owner = new AnnotatedMethod(method, null, null);
+        AnnotatedMethod owner = new AnnotatedMethod(null, method, null, null);
         AnnotatedParameter annotatedParameter = new AnnotatedParameter(owner, null, null, 0);
 
         String propertyName = PN_AI.findImplicitPropertyName(annotatedParameter);
