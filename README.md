@@ -6,23 +6,14 @@ that adds support for accessing parameter names; a feature added in JDK 8.
 This is a new, experimental module; 2.4 is the first official release.
 
 [![Build Status](https://fasterxml.ci.cloudbees.com/job/jackson-module-parameter-names-master/badge/icon)](https://fasterxml.ci.cloudbees.com/job/jackson-module-parameter-names-master/)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.module/jackson-module-parameter-names/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.module/jackson-module-parameter-names)
 
 
 ## Usage
 
 ### Maven dependency
 
-To use module on Maven-based projects, use following dependency:
-
-```xml
-<dependency>
-  <groupId>com.fasterxml.jackson.module</groupId>
-  <artifactId>jackson-module-parameter-names</artifactId>
-  <version>2.4.0</version>
-</dependency>
-```
-
-(or whatever version is most up-to-date at the moment)
+To use module on Maven-based projects, click on the second badge in the previous, Status section.
 
 ### Registering module
 
