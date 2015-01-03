@@ -13,7 +13,7 @@ This is a new, experimental module; 2.4 is the first official release.
 
 ### Maven dependency
 
-To use module on Maven-based projects, click on the second badge in the previous, Status section.
+For maven dependency definition, click on the second badge in the previous, Status section.
 
 ### Registering module
 
