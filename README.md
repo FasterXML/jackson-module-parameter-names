@@ -35,10 +35,14 @@ So, after registering the module as described above, you will be able to use dat
 ```java
 class Person {
 
+    // mandatory fields
     private final String name;
     private final String surname;
+    
+    // optional fields
+    private String nickname;
 
-    @JsonCreator // important!
+    // no annotations are required if preconditions are met (details below)
     public Person(String name, String surname) {
 
         this.name = name;
@@ -52,10 +56,23 @@ class Person {
     public String getSurname() {
         return surname;
     }
+
+    public String getNickname() {
+
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+
+        this.nickname = nickname;
+    }
 }
 ```
-class Person must be compiled with Java 8 compliant compiler with the enabled option to store formal parameter names (`-parameters` option). For more information about Java 8 API for accessing parameter names at runtime see [this][2].
 
+Preconditions:
+
+  - class Person must be compiled with Java 8 compliant compiler with option to store formal parameter names turned on (`-parameters` option). For more information about Java 8 API for accessing parameter names at runtime see [this][2]
+  - if there are multiple visible constructors and there is no default constructor, @JsonCreator is required to select constructor for deserialization
 
 ## More
 
