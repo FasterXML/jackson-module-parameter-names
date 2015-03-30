@@ -37,7 +37,7 @@ introspection of method/constructor parameter names, without having to add expli
     <!-- Generate PackageVersion.java into this directory. -->
     <packageVersion.dir>com/fasterxml/jackson/module/paramnames</packageVersion.dir>
     <packageVersion.package>${project.groupId}.paramnames</packageVersion.package>
-    <assertj-core.version>1.7.1</assertj-core.version>
+    <assertj-core.version>2.0.0</assertj-core.version>
 
     <!-- Configuration properties for the OSGi maven-bundle-plugin -->
     <osgi.import>com.fasterxml.jackson.core
