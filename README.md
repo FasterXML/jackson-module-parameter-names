@@ -32,6 +32,7 @@ Java 8 API adds support for accessing parameter names at runtime in order to ena
 
 So, after registering the module as described above, you will be able to use data binding with a class like
 
+```java
 class Person {
 
     // mandatory fields
@@ -66,6 +67,7 @@ class Person {
         this.nickname = nickname;
     }
 }
+```
 
 Preconditions:
 
@@ -78,5 +80,3 @@ See [Wiki](../../wiki) for more information (javadocs, downloads).
 
 [1]: http://jackson.codehaus.org/1.1.2/javadoc/org/codehaus/jackson/annotate/JsonProperty.html
 [2]: http://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html
-
-
