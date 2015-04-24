@@ -9,7 +9,7 @@
   <groupId>com.fasterxml.jackson.module</groupId>
   <artifactId>jackson-module-parameter-names</artifactId>
   <name>Jackson-module-parameter-names</name>
-  <version>2.4.6-SNAPSHOT</version>
+  <version>2.4.6</version>
   <packaging>bundle</packaging>
   <description>Add-on module for Jackson (http://jackson.codehaus.org) to support
 introspection of method/constructor parameter names, without having to add explicit property name annotation.
@@ -27,7 +27,7 @@ introspection of method/constructor parameter names, without having to add expli
     <connection>scm:git:git@github.com:FasterXML/jackson-module-parameter-names.git</connection>
     <developerConnection>scm:git:git@github.com:FasterXML/jackson-module-parameter-names.git</developerConnection>
     <url>http://github.com/FasterXML/jackson-module-parameter-names</url>    
-    <tag>HEAD</tag>
+    <tag>jackson-module-parameter-names-2.4.6</tag>
   </scm>
   <properties>
     <version.jackson.core>2.4.6</version.jackson.core>
