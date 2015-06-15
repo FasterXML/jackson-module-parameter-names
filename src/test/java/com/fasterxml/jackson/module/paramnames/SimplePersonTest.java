@@ -4,6 +4,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 
 import java.io.IOException;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ public class SimplePersonTest {
 
         // given
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new ParameterNamesModule());
+        objectMapper.registerModule(new ParameterNamesModule(JsonCreator.Mode.PROPERTIES));
 
         // when
         SimplePerson actual = objectMapper.readValue("{\"name\":\"joe\"}", SimplePerson.class);
