@@ -17,7 +17,7 @@ public class ParameterNamesModule extends SimpleModule
 
     public ParameterNamesModule() {
         super(PackageVersion.VERSION);
-        this.creatorBinding = JsonCreator.Mode.DEFAULT;
+        this.creatorBinding = null;
     }
 
     @Override
