@@ -3,8 +3,6 @@ that adds support for accessing parameter names; a feature added in JDK 8.
 
 ## Status
 
-This is a new, experimental module; 2.4 is the first official release.
-
 [[![Build Status](https://travis-ci.org/FasterXML/jackson-module-parameter-names.svg)](https://travis-ci.org/FasterXML/jackson-module-parameter-names)](https://travis-ci.org/FasterXML/jackson-module-parameter-names)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.module/jackson-module-parameter-names/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.module/jackson-module-parameter-names)
 
@@ -25,6 +23,19 @@ mapper.registerModule(new ParameterNamesModule());
 ```
 
 after which functionality is available for all normal Jackson operations.
+
+### Delegating creator
+
+By default, Jackson uses single argument constructors for mapping whole JSON value into value of the argument.
+
+To override this behavior use the `ParameterNamesModule` constructor with `JsonCreator.Mode`.
+For example, to use same behavior as for constructors with multiple parameters:
+```java
+
+ObjectMapper objectMapper = new ObjectMapper();
+objectMapper.registerModule(new ParameterNamesModule(JsonCreator.Mode.PROPERTIES));
+
+```
 
 ### Usage example
 
