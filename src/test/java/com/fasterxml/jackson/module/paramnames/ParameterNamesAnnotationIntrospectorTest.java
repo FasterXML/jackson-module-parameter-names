@@ -1,5 +1,6 @@
 package com.fasterxml.jackson.module.paramnames;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.introspect.AnnotatedConstructor;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMethod;
 import com.fasterxml.jackson.databind.introspect.AnnotatedParameter;
@@ -16,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class ParameterNamesAnnotationIntrospectorTest {
 
-    private final ParameterNamesAnnotationIntrospector PN_AI = new ParameterNamesAnnotationIntrospector();
+    private final ParameterNamesAnnotationIntrospector PN_AI = new ParameterNamesAnnotationIntrospector(JsonCreator.Mode.DEFAULT);
 
     @Test
     public void shouldFindParameterNameFromConstructorForLegalIndex() throws Exception {
