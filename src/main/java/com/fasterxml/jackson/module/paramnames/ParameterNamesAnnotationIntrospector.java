@@ -36,6 +36,11 @@ class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector
     @Override
     public JsonCreator.Mode findCreatorBinding(Annotated a) {
 
+        JsonCreator ann = a.getAnnotation(JsonCreator.class);
+        if (ann != null) {
+            return ann.mode();
+        }
+
         return creatorBinding;
     }
 
