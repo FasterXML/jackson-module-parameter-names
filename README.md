@@ -28,7 +28,7 @@ after which functionality is available for all normal Jackson operations.
 
 By default, Jackson uses single argument constructors for mapping whole JSON value into value of the argument.
 
-To override this behavior use the `ParameterNamesModule` constructor with `JsonCreator.Mode`.
+To override this behavior use the `ParameterNamesModule` constructor with `JsonCreator.Mode` parameter.
 For example, to use same behavior as for constructors with multiple parameters:
 ```java
 
