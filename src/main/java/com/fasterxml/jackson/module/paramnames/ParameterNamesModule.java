@@ -1,7 +1,6 @@
 package com.fasterxml.jackson.module.paramnames;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.core.json.PackageVersion;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 public class ParameterNamesModule extends SimpleModule
