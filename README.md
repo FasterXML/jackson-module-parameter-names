@@ -5,6 +5,7 @@ that adds support for accessing parameter names; a feature added in JDK 8.
 
 [[![Build Status](https://travis-ci.org/FasterXML/jackson-module-parameter-names.svg)](https://travis-ci.org/FasterXML/jackson-module-parameter-names)](https://travis-ci.org/FasterXML/jackson-module-parameter-names)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.module/jackson-module-parameter-names/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.module/jackson-module-parameter-names)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.fasterxml.jackson.module/jackson-module-parameter-names/badge.svg)](http://www.javadoc.io/doc/com.fasterxml.jackson.module/jackson-module-parameter-names)
 
 
 ## Usage
