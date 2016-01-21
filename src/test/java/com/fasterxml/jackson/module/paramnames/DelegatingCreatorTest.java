@@ -1,14 +1,14 @@
 package com.fasterxml.jackson.module.paramnames;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.core.type.*;
+import com.fasterxml.jackson.databind.*;
+import org.junit.*;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
-import static org.assertj.core.api.BDDAssertions.then;
+import static org.assertj.core.api.BDDAssertions.*;
 
 public class DelegatingCreatorTest {
 
@@ -29,6 +29,28 @@ public class DelegatingCreatorTest {
 		then(actual).isEqualToComparingFieldByField(expected);
 	}
 
+	@Test
+	public void shouldDeserializeIntWrapper() throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+
+		mapper.registerModule(new ParameterNamesModule());
+
+		IntWrapper actual = mapper.readValue
+				("{\"value\":13}", IntWrapper.class);
+		then(actual).isEqualToComparingFieldByField(new IntWrapper(13));
+	}
+
+	@Test
+	public void shouldDeserializeGenericWrapper() throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+
+		mapper.registerModule(new ParameterNamesModule());
+
+		GenericWrapper<String> actual = mapper.readValue
+				("{\"value\":\"aValue\"}", new TypeReference<GenericWrapper<String>>() { });
+		then(actual).isEqualToComparingFieldByField(new GenericWrapper<>("aValue"));
+	}
+
 	static class ClassWithDelegatingCreator {
 
 		private final String value;
@@ -39,6 +61,34 @@ public class DelegatingCreatorTest {
 		}
 
 		String getValue() {
+			return value;
+		}
+	}
+
+	public static class IntWrapper
+	{
+		private final int value;
+
+		@JsonCreator(mode=JsonCreator.Mode.PROPERTIES)
+		public IntWrapper(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+	}
+
+	public static class GenericWrapper<T>
+	{
+		private final T value;
+
+		@JsonCreator(mode=JsonCreator.Mode.PROPERTIES)
+		public GenericWrapper(T value) {
+			this.value = value;
+		}
+
+		public T getValue() {
 			return value;
 		}
 	}
