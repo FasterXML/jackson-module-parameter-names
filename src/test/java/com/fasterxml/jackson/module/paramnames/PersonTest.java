@@ -7,14 +7,14 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
-public class PersonTest {
-
+public class PersonTest
+{
     @Test
-    public void shouldBeAbleToDeserializePerson() throws IOException {
-
+    public void shouldBeAbleToDeserializePerson() throws IOException
+    {
         // given
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new ParameterNamesModule());
+        ObjectMapper objectMapper = new ObjectMapper()
+            .registerModule(new ParameterNamesModule());
 
         // when
         Person actual = objectMapper.readValue("{\"name\":\"joe\",\"surname\":\"smith\",\"nickname\":\"joey\"}", Person.class);
