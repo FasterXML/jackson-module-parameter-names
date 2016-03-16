@@ -4,7 +4,7 @@ Project: jackson-module-parameter-names
 = Releases
 ------------------------------------------------------------------------
 
-2.7.3 (not yet released)
+2.7.3 (16-Mar-2016)
 
 #32: @JsonProperty annotations on enums are not respected if parameter names module is registered
  (reported by Ed W)
