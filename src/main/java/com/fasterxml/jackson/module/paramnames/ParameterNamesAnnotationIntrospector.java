@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.introspect.*;
 
-import java.lang.reflect.*;
+import java.lang.reflect.MalformedParametersException;
+import java.lang.reflect.Parameter;
 
 /**
  * Introspector that uses parameter name information provided by the Java Reflection API additions in Java 8 to
@@ -14,15 +15,16 @@ import java.lang.reflect.*;
  * @see AnnotationIntrospector
  * @see Parameter
  */
-class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector
-{
+class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector {
     private static final long serialVersionUID = 1L;
 
     private final JsonCreator.Mode creatorBinding;
+    private final ParameterExtractor parameterExtractor;
 
-    ParameterNamesAnnotationIntrospector(JsonCreator.Mode creatorBinding) {
+    ParameterNamesAnnotationIntrospector(JsonCreator.Mode creatorBinding, ParameterExtractor parameterExtractor) {
 
         this.creatorBinding = creatorBinding;
+        this.parameterExtractor = parameterExtractor;
     }
 
     @Override
@@ -44,26 +46,28 @@ class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector
         return creatorBinding;
     }
 
-    /**
-     * Returns the parameter name, or {@code null} if it could not be determined.
-     *
-     * @param annotatedParameter containing constructor or method from which {@link Parameter} can be extracted
-     *
-     * @return name or {@code null} if parameter could not be determined
-     */
     private String findParameterName(AnnotatedParameter annotatedParameter) {
 
-        AnnotatedWithParams owner = annotatedParameter.getOwner();
         Parameter[] params;
-
-        if (owner instanceof AnnotatedConstructor) {
-            params = ((AnnotatedConstructor) owner).getAnnotated().getParameters();
-        } else if (owner instanceof AnnotatedMethod) {
-            params = ((AnnotatedMethod) owner).getAnnotated().getParameters();
-        } else {
+        try {
+            params = getParameters(annotatedParameter.getOwner());
+        } catch (MalformedParametersException e) {
             return null;
         }
+
         Parameter p = params[annotatedParameter.getIndex()];
         return p.isNamePresent() ? p.getName() : null;
+    }
+
+    private Parameter[] getParameters(AnnotatedWithParams owner) {
+        if (owner instanceof AnnotatedConstructor) {
+            return parameterExtractor.getParameters(((AnnotatedConstructor) owner).getAnnotated());
+        }
+
+        if (owner instanceof AnnotatedMethod) {
+            return parameterExtractor.getParameters(((AnnotatedMethod) owner).getAnnotated());
+        }
+
+        return null;
     }
 }
