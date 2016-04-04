@@ -4,6 +4,11 @@ Project: jackson-module-parameter-names
 = Releases
 ------------------------------------------------------------------------
 
+2.7.4 (not yet released)
+
+#33: Calls to Executable.getParameters() should guard against MalformedParametersException
+ (repoted by Oliver G, fixed by Lovro P)
+
 2.7.3 (16-Mar-2016)
 
 #32: @JsonProperty annotations on enums are not respected if parameter names module is registered
