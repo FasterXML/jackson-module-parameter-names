@@ -4,7 +4,7 @@ Project: jackson-module-parameter-names
 = Releases
 ------------------------------------------------------------------------
 
-2.7.4 (not yet released)
+2.7.4 (29-Apr-2016)
 
 #33: Calls to Executable.getParameters() should guard against MalformedParametersException
  (repoted by Oliver G, fixed by Lovro P)
