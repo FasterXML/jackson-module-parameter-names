@@ -27,9 +27,13 @@ public class EnumNamingTest
         assertEquals(EXP, json);
 
         // and then with parameter names module
-        json = new ObjectMapper()
-            .registerModule(new ParameterNamesModule())
-            .writeValueAsString(SurprisingEnum32.ENUM_NAME);
+        final ObjectMapper mapperWithNames = new ObjectMapper()
+            .registerModule(new ParameterNamesModule());
+        json = mapperWithNames.writeValueAsString(SurprisingEnum32.ENUM_NAME);
         assertEquals(EXP, json);
+
+        // plus read back:
+        SurprisingEnum32 value = mapperWithNames.readValue(json, SurprisingEnum32.class);
+        assertEquals(SurprisingEnum32.ENUM_NAME, value);
     }
 }

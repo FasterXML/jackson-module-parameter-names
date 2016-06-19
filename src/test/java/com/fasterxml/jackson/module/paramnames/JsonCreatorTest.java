@@ -6,7 +6,8 @@ import org.junit.*;
 
 import static org.assertj.core.api.BDDAssertions.*;
 
-public class JsonCreatorTest {
+public class JsonCreatorTest
+{
 
 	@Test
 	public void shouldDeserializeClassWithJsonCreatorOnStaticMethod() throws Exception {
@@ -23,9 +24,8 @@ public class JsonCreatorTest {
 	}
 
 	static class ClassWithJsonCreatorOnStaticMethod {
-
-		private final String first;
-		private final String second;
+		final String first;
+		final String second;
 
 		ClassWithJsonCreatorOnStaticMethod(String first, String second) {
 			this.first = first;
