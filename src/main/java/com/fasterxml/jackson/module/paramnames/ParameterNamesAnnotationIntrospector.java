@@ -35,6 +35,7 @@ class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector {
         return null;
     }
 
+    @Deprecated // since 2.9
     @Override
     public JsonCreator.Mode findCreatorBinding(Annotated a) {
 
