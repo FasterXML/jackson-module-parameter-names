@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.AnnotationIntrospector;
 import com.fasterxml.jackson.databind.introspect.*;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.MalformedParametersException;
 import java.lang.reflect.Parameter;
 
@@ -45,6 +46,18 @@ class ParameterNamesAnnotationIntrospector extends NopAnnotationIntrospector {
         }
 
         return creatorBinding;
+    }
+
+    @Deprecated // since 2.9
+    @Override
+    public boolean hasCreatorAnnotation(Annotated a) {
+        if (a instanceof AnnotatedConstructor) {
+            Constructor<?>[] constructors = ((AnnotatedConstructor) a).getDeclaringClass().getConstructors();
+            if (constructors.length == 1 && constructors[0].equals(a.getAnnotated())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private String findParameterName(AnnotatedParameter annotatedParameter) {
